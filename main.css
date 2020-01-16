@@ -1,0 +1,23 @@
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.acrylic {
+  padding: 6em 4em;
+  position: relative;
+  border-radius: 2px;
+  background: rgba(60,0,130,0.25);
+  backdrop-filter: blur(5px) saturate(125%);
+  margin: 7px;
+}
+
+body {
+  background: url("background.webp") center/cover;
+  background-attachment: fixed;
+  margin: 0;
+  font: 1em/1.4 Cantarell;
+  color: #fff;
+}
