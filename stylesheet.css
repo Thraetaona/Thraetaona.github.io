@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Cantarell');
 
+* {
+	border-radius: 2px;
+}
+
 body {
-  border-radius: 2px;
   margin: 0;
   padding: 0;
-  background: url("background.webp") center/cover;
-  background-attachment: fixed;
+  background: url("background.webp");
+	background-repeat: repeat;
   font-family: 'Cantarell';
   color: #fff;
 }
@@ -25,3 +28,4 @@ body {
   z-index: 1;
   overflow-x: hidden;
 }
+
