@@ -1,23 +1,24 @@
-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.acrylic {
-  padding: 6em 4em;
-  position: relative;
-  border-radius: 2px;
-  background: rgba(60,0,130,0.25);
-  backdrop-filter: blur(5px) saturate(125%);
-  margin: 7px;
-}
-
-body {
-  background: url("background.webp") center/cover;
-  background-attachment: fixed;
-  margin: 0;
-  font: 1em/1.4 Cantarell;
-  color: #fff;
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Violet Villain</title>
+    <link rel="icon" type="image/png" href="https://avatars0.githubusercontent.com/u/42461518" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Fereydoun Memarzanjany">
+    <meta name="author" content="Fereydoun Memarzanjany">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+  </head>
+  <body>
+    <div class="acrylic" >
+      <div id="sidebar" >
+      <h1>Violet Villain</h1>
+      <img src="https://avatars0.githubusercontent.com/u/42461518">
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+        </div>
+    </div>
+  </body>
+</html>
