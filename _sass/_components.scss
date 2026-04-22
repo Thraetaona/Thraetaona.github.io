@@ -1,0 +1,199 @@
+// =============================================================================
+// Components
+// =============================================================================
+
+@use "variables" as *;
+
+// Post components
+.post, .page, .project {
+  margin-bottom: 4rem;
+}
+
+.post-header, .page-header, .project-header {
+  margin-bottom: 2rem;
+}
+
+.post-title, .page-title, .project-title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.post-meta {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-categories {
+  margin-left: 0.5rem;
+  
+  .post-category {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    margin-right: 0.3rem;
+    font-size: 0.8rem;
+    background-color: var(--color-bg-alt);
+    border-radius: $border-radius;
+    text-decoration: none;
+    
+    &:hover {
+      background-color: var(--color-accent);
+      color: white;
+    }
+  }
+}
+
+.post-tags {
+  margin-top: 2rem;
+  
+  .post-tag {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    background-color: var(--color-bg-alt);
+    border-radius: $border-radius;
+    text-decoration: none;
+    
+    &:hover {
+      background-color: var(--color-accent);
+      color: white;
+    }
+  }
+}
+
+// Project status badge
+.project-status {
+  margin-bottom: 1rem;
+  
+  .status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    
+    &.status-active {
+      background-color: rgba(0, 200, 83, 0.2);
+      color: rgb(0, 150, 60);
+    }
+    
+    &.status-completed {
+      background-color: rgba(0, 120, 212, 0.2);
+      color: rgb(0, 100, 180);
+    }
+    
+    &.status-archived {
+      background-color: rgba(150, 150, 150, 0.2);
+      color: rgb(100, 100, 100);
+    }
+  }
+}
+
+// Project links
+.project-links {
+  margin-bottom: 1.5rem;
+  
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-button-bg);
+    border: 1px solid var(--color-button-border);
+    border-radius: $border-radius;
+    color: var(--color-button-text);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    
+    svg {
+      margin-right: 0.5rem;
+    }
+    
+    &:hover {
+      background-color: var(--color-button-bg-hover);
+      text-decoration: none;
+    }
+  }
+}
+
+// Technologies list
+.technologies-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  .technology-item {
+    margin: 0 1rem 0.5rem 0;
+    padding: 0.3rem 0.8rem;
+    background-color: var(--color-bg-alt);
+    border-radius: $border-radius;
+    font-size: 0.9rem;
+  }
+}
+
+// Post list on index page
+.post-list {
+  list-style: none;
+  padding: 0;
+  
+  .post-item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  .post-link {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: var(--color-heading);
+    text-decoration: none;
+    
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+  
+  .post-excerpt {
+    margin-top: 0.5rem;
+  }
+}
+
+// Pagination
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  
+  .pagination-item {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-button-bg);
+    border: 1px solid var(--color-button-border);
+    border-radius: $border-radius;
+    color: var(--color-button-text);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    
+    &:hover {
+      background-color: var(--color-button-bg-hover);
+      text-decoration: none;
+    }
+    
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+} 

@@ -1,0 +1,121 @@
+// =============================================================================
+// Layout
+// =============================================================================
+
+@use "variables" as *;
+
+// Container
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+// Header
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem $container-padding;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  
+  @media (max-width: $breakpoint-md) {
+    flex-wrap: wrap;
+    
+    .site-title {
+      flex: 1;
+    }
+    
+    nav {
+      order: 3;
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }
+}
+
+// Site title
+.site-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+  color: var(--color-heading);
+}
+
+// Navigation
+.top-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+  li {
+    margin: 0 1rem 0 0;
+    
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  
+  a {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--color-text);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    
+    &:hover, &:focus {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    
+    &[aria-current="page"] {
+      color: var(--color-accent);
+      border-bottom-color: var(--color-accent);
+    }
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    flex-wrap: wrap;
+    
+    li {
+      margin-right: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+// Main content
+main {
+  padding: 2rem 0;
+}
+
+// Footer
+footer {
+  padding: 2rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-secondary);
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+    
+    @media (max-width: $breakpoint-sm) {
+      flex-direction: column;
+      text-align: center;
+      
+      .copyright {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+} 

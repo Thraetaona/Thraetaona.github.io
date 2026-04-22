@@ -1,0 +1,82 @@
+// =============================================================================
+// Variables
+// =============================================================================
+
+// Typography
+$font-family-base: 'Serifa', Georgia, serif;
+$font-family-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+$font-size-base: 18px;
+$line-height-base: 1.6;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Spacing
+$spacing-unit: 1rem;
+
+// Container
+$container-max-width: 900px;
+$container-padding: $spacing-unit;
+
+// Border radius
+$border-radius: 5px;
+
+// Theme colors
+:root {
+  // Light theme variables
+  --color-bg: #ffffff;
+  --color-bg-alt: #f4f4f4;
+  --color-text: #323232;
+  --color-text-secondary: #565656;
+  --color-heading: #222222;
+  --color-accent: #0066cc;
+  --color-accent-hover: #0055aa;
+  --color-border: #e1e1e1;
+  --color-code-bg: #f7f7f7;
+  --color-code-text: #d33682;
+  --color-blockquote-border: #d4d4d4;
+  
+  // UI controls
+  --color-button-bg: #f0f0f0;
+  --color-button-text: #333333;
+  --color-button-bg-hover: #e0e0e0;
+  --color-button-border: #d4d4d4;
+  
+  // Form elements
+  --color-input-bg: #ffffff;
+  --color-input-border: #d4d4d4;
+  --color-input-text: #333333;
+  --color-input-placeholder: #999999;
+  --color-input-focus-border: #0066cc;
+}
+
+html[data-theme="dark"] {
+  // Dark theme variables
+  --color-bg: #1a1a1a;
+  --color-bg-alt: #262626;
+  --color-text: #e0e0e0;
+  --color-text-secondary: #b0b0b0;
+  --color-heading: #ffffff;
+  --color-accent: #3b95ff;
+  --color-accent-hover: #70b0ff;
+  --color-border: #444444;
+  --color-code-bg: #2d2d2d;
+  --color-code-text: #ff6890;
+  --color-blockquote-border: #555555;
+  
+  // UI controls
+  --color-button-bg: #333333;
+  --color-button-text: #e0e0e0;
+  --color-button-bg-hover: #444444;
+  --color-button-border: #555555;
+  
+  // Form elements
+  --color-input-bg: #2a2a2a;
+  --color-input-border: #444444;
+  --color-input-text: #e0e0e0;
+  --color-input-placeholder: #999999;
+  --color-input-focus-border: #3b95ff;
+} 

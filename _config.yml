@@ -1,0 +1,65 @@
+# Jekyll Configuration
+# Migrated from PowerShell-based static site generator
+
+# Site Information
+title: "Bitwise"
+description: "A minimalist, accessible blog showcasing projects and thoughts on technology."
+author: "Fereydoun Memarzanjany"
+baseurl: "" # empty if served from root
+url: "https://thraetaona.github.io" # your site's full URL
+
+# Build settings
+markdown: kramdown
+permalink: /blog/:title/
+
+# Content Settings
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  math_engine: mathjax
+
+# Pagination settings
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap
+  # Uncomment the line below if you want to use AsciiDoc
+  # - jekyll-asciidoc 
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      is_post: true
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Exclude from processing
+exclude:
+  - scripts/
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .gitignore 

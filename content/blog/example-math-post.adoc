@@ -1,0 +1,88 @@
+= Understanding LaTeX Math in Web Content
+:stem: latexmath
+:toc: left
+:icons: font
+:doctype: article
+:description: Using LaTeX math in web content with accessibility considerations for all users.
+:keywords: LaTeX, MathJax, accessibility, math notation, web content
+:page-layout: post
+:published_date: 2023-05-15
+
+Mathematical expressions on the web present unique challenges for both rendering and accessibility. This post explores how to use MathJax for beautiful and accessible math notation.
+
+== Introduction to MathJax
+
+MathJax is a powerful JavaScript library that allows for rendering mathematical expressions written in LaTeX, MathML, or AsciiMath formats. It's particularly valuable for accessibility because it can generate content that screen readers can interpret.
+
+MathJax works by taking mathematical markup (like LaTeX) and converting it to accessible HTML and/or MathML that can be rendered by browsers and interpreted by assistive technologies.
+
+== Basic LaTeX Math Examples
+
+Here are some simple equations using LaTeX notation:
+
+=== The sum of first n integers
+
+[stem]
+++++
+\sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+++++
+
+_Description: The sum of integers from 1 to n equals n times (n+1) divided by 2._
+
+=== Pythagorean theorem
+
+[stem]
+++++
+a^2 + b^2 = c^2
+++++
+
+_Description: In a right triangle, the square of the hypotenuse (c) equals the sum of squares of the other two sides (a and b)._
+
+=== Quadratic formula
+
+[stem]
+++++
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+++++
+
+_Description: The solutions to the quadratic equation ax² + bx + c = 0 are given by x equals negative b plus or minus the square root of (b² - 4ac), all divided by 2a._
+
+== Accessibility Considerations
+
+When using mathematical expressions in web content, consider these accessibility tips:
+
+* *Provide text alternatives:* Always include a text description for complex equations
+* *Use MathJax's accessibility extensions:* These provide additional features for screen readers
+* *Test with screen readers:* Ensure expressions are properly announced
+* *Maintain high contrast:* Ensure all notation meets WCAG AAA contrast requirements (7:1)
+* *Use semantic markup:* Define equations within proper semantic containers
+
+MathJax outputs MathML behind the scenes, which many modern screen readers can interpret. This means that expressions like stem:[E = mc^2] can be read aloud with proper pronunciation of variables and operations.
+
+== Implementing MathJax
+
+Adding MathJax to your website is straightforward. The simplest approach is to load it from a CDN:
+
+[source,html]
+----
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+----
+
+Then, you can write LaTeX math expressions in your HTML content:
+
+[source,html]
+----
+<div class="math">
+  \begin{equation}
+  E = mc^2
+  \end{equation}
+</div>
+----
+
+MathJax will automatically detect and render these expressions. For sites that only occasionally use math, you can lazy-load MathJax only when needed, improving performance for pages without mathematical content.
+
+== Conclusion
+
+Mathematical expressions are an important part of many educational and technical websites. By using MathJax and following accessibility best practices, we can ensure that mathematical content is available to all users, regardless of how they access the web.
+
+Remember to always provide text alternatives for complex equations and test your content with screen readers to ensure it's properly accessible. 

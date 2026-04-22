@@ -1,0 +1,213 @@
+= The Mathematical Foundations of Neural Networks
+:stem: latexmath
+:toc: left
+:icons: font
+:doctype: article
+:description: An in-depth exploration of the mathematics behind neural networks, activation functions, and backpropagation.
+:keywords: neural networks, machine learning, mathematics, calculus, linear algebra, backpropagation
+:page-layout: post
+:published_date: 2023-06-01
+
+Neural networks have revolutionized machine learning and artificial intelligence. While they can seem like magical black boxes, they're built on solid mathematical foundations. This post explores the essential mathematics behind neural networks.
+
+== Introduction to Neural Network Architecture
+
+At its core, a neural network is a series of mathematical functions organized in layers. Each artificial neuron computes a weighted sum of inputs, applies a non-linear activation function, and passes the result to the next layer.
+
+[stem]
+++++
+y = f\left(\sum_{i=1}^{n} w_i x_i + b\right)
+++++
+
+Where:
+
+* stem:[y] is the output of the neuron
+* stem:[f] is the activation function
+* stem:[w_i] are the weights
+* stem:[x_i] are the inputs
+* stem:[b] is the bias term
+* stem:[n] is the number of inputs
+
+=== Matrix Representation
+
+In practice, we process entire layers of neurons simultaneously using matrix operations. For a layer with stem:[m] neurons and stem:[n] inputs:
+
+[stem]
+++++
+\mathbf{Y} = f(\mathbf{W}\mathbf{X} + \mathbf{b})
+++++
+
+Where:
+
+* stem:[\mathbf{Y}] is the output vector (dimension stem:[m \times 1])
+* stem:[\mathbf{W}] is the weight matrix (dimension stem:[m \times n])
+* stem:[\mathbf{X}] is the input vector (dimension stem:[n \times 1])
+* stem:[\mathbf{b}] is the bias vector (dimension stem:[m \times 1])
+* stem:[f] is applied element-wise
+
+== Activation Functions
+
+Activation functions introduce non-linearity, allowing neural networks to learn complex patterns.
+
+=== Sigmoid Function
+
+The sigmoid function maps any value to a range between 0 and 1, useful for binary classification problems:
+
+[stem]
+++++
+\sigma(x) = \frac{1}{1 + e^{-x}}
+++++
+
+Its derivative, crucial for backpropagation:
+
+[stem]
+++++
+\sigma'(x) = \sigma(x)(1 - \sigma(x))
+++++
+
+=== Hyperbolic Tangent (tanh)
+
+Similar to sigmoid but with an output range of [-1, 1]:
+
+[stem]
+++++
+\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}
+++++
+
+Its derivative:
+
+[stem]
+++++
+\tanh'(x) = 1 - \tanh^2(x)
+++++
+
+=== Rectified Linear Unit (ReLU)
+
+ReLU is computationally efficient and helps address the vanishing gradient problem:
+
+[stem]
+++++
+\text{ReLU}(x) = \max(0, x)
+++++
+
+Its derivative:
+
+[stem]
+++++
+\text{ReLU}'(x) = 
+\begin{cases} 
+1 & \text{if } x > 0 \\
+0 & \text{if } x \leq 0
+\end{cases}
+++++
+
+== Loss Functions
+
+Loss functions quantify how well the neural network's predictions match the ground truth.
+
+=== Mean Squared Error (MSE)
+
+Common for regression problems:
+
+[stem]
+++++
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+++++
+
+=== Cross-Entropy Loss
+
+Preferred for classification tasks:
+
+[stem]
+++++
+\text{Cross-Entropy} = -\sum_{i=1}^{n} y_i \log(\hat{y}_i)
+++++
+
+For binary classification, this simplifies to:
+
+[stem]
+++++
+\text{Binary Cross-Entropy} = -y \log(\hat{y}) - (1 - y) \log(1 - \hat{y})
+++++
+
+== Backpropagation: The Chain Rule in Action
+
+Backpropagation is the algorithm that allows neural networks to learn by adjusting weights based on error gradients. It's fundamentally an application of the chain rule from calculus.
+
+Consider a simple two-layer network with mean squared error loss. The chain rule gives us:
+
+[stem]
+++++
+\frac{\partial \text{Loss}}{\partial w_{ij}^{(l)}} = \frac{\partial \text{Loss}}{\partial a_j^{(l+1)}} \cdot \frac{\partial a_j^{(l+1)}}{\partial z_j^{(l+1)}} \cdot \frac{\partial z_j^{(l+1)}}{\partial w_{ij}^{(l)}}
+++++
+
+Where:
+
+* stem:[w_{ij}^{(l)}] is the weight from neuron stem:[i] in layer stem:[l] to neuron stem:[j] in layer stem:[l+1]
+* stem:[z_j^{(l+1)}] is the weighted input to neuron stem:[j] in layer stem:[l+1]
+* stem:[a_j^{(l+1)}] is the activated output of neuron stem:[j] in layer stem:[l+1]
+
+=== Gradient Descent Update Rule
+
+With the gradients calculated, weights are updated using the rule:
+
+[stem]
+++++
+w_{ij}^{(l)} = w_{ij}^{(l)} - \eta \frac{\partial \text{Loss}}{\partial w_{ij}^{(l)}}
+++++
+
+Where stem:[\eta] is the learning rate.
+
+== Advanced Topic: Regularization Mathematics
+
+Regularization helps prevent overfitting by penalizing large weights.
+
+=== L2 Regularization (Weight Decay)
+
+L2 regularization adds the squared magnitude of weights to the loss function:
+
+[stem]
+++++
+\text{Loss}_{\text{regularized}} = \text{Loss} + \lambda \sum_{w \in \text{weights}} w^2
+++++
+
+This modifies the gradient descent update:
+
+[stem]
+++++
+w_{ij}^{(l)} = w_{ij}^{(l)} - \eta \left( \frac{\partial \text{Loss}}{\partial w_{ij}^{(l)}} + 2\lambda w_{ij}^{(l)} \right)
+++++
+
+=== Dropout
+
+Dropout randomly zeroes elements of the layer outputs with probability stem:[p]:
+
+[stem]
+++++
+\tilde{a}_i^{(l)} = 
+\begin{cases} 
+a_i^{(l)} / (1-p) & \text{with probability } 1-p \\
+0 & \text{with probability } p
+\end{cases}
+++++
+
+During inference, outputs are scaled by stem:[1-p] to maintain consistent expected values.
+
+== Computational Considerations: Optimizing Matrix Operations
+
+Modern neural networks rely heavily on efficient matrix operations. The time complexity of multiplying two matrices, stem:[\mathbf{A}] (dimension stem:[m \times n]) and stem:[\mathbf{B}] (dimension stem:[n \times p]), is approximately stem:[O(mnp)].
+
+For large neural networks, these operations can be parallelized across GPUs, with each processing unit handling a portion of the matrix multiplication:
+
+[stem]
+++++
+C_{ij} = \sum_{k=1}^{n} A_{ik} B_{kj}
+++++
+
+== Conclusion
+
+Neural networks may appear complex, but they're built on straightforward mathematical principles: linear algebra for layer operations, calculus for optimization, and probability theory for regularization.
+
+Understanding these mathematical foundations helps demystify neural networks and provides insight into how to design more effective architectures for specific problems.
+
+This post only scratches the surface of neural network mathematics. Future posts will explore more advanced topics like convolutional neural networks, recurrent architectures, and attention mechanisms. 

@@ -1,0 +1,76 @@
+// =============================================================================
+// Theme Toggle
+// =============================================================================
+
+// Theme toggle wrapper
+.theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+// Hide the actual checkbox
+.theme-toggle-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+// Style the toggle label
+.theme-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    
+    html[data-theme="dark"] & {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+// Style the icons
+.theme-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+// Show/hide icons based on theme
+.theme-icon-dark {
+  opacity: 0;
+  transform: scale(0.7) rotate(45deg);
+  position: absolute;
+  
+  html[data-theme="dark"] & {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+.theme-icon-light {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+  
+  html[data-theme="dark"] & {
+    opacity: 0;
+    transform: scale(0.7) rotate(-45deg);
+  }
+}
+
+// Toggle button when checked (using CSS-only approach)
+.theme-toggle-checkbox:checked + .theme-toggle {
+  // This behavior is now handled via JavaScript and data-theme attribute
+} 

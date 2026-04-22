@@ -1,0 +1,93 @@
+---
+layout: default
+title: Blog
+menu_order: 2
+permalink: /blog/
+---
+
+<div class="blog">
+  <header class="page-header">
+    <h1 class="page-title">{{ page.title }}</h1>
+  </header>
+
+  <ul class="post-list">
+    {% for post in paginator.posts %}
+    <li class="post-item">
+      <h2>
+        <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+      <div class="post-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">
+          {%- assign date_format = site.date_format | default: "%b %-d, %Y" -%}
+          {{ post.date | date: date_format }}
+        </time>
+        {% if post.categories %}
+        <span class="post-categories">
+          {% for category in post.categories %}
+            <a href="{{ site.baseurl }}/categories/{{ category | slugify }}/" class="post-category">{{ category }}</a>
+          {% endfor %}
+        </span>
+        {% endif %}
+      </div>
+      <div class="post-excerpt">
+        {{ post.excerpt }}
+      </div>
+      <a href="{{ post.url | relative_url }}" class="read-more">Read more &raquo;</a>
+    </li>
+    {% endfor %}
+  </ul>
+  
+  <!-- Pagination links -->
+  {% if paginator.total_pages > 1 %}
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-item">
+        &laquo; Previous
+      </a>
+    {% else %}
+      <span class="pagination-item disabled">&laquo; Previous</span>
+    {% endif %}
+  
+    {% assign page_start = paginator.page | minus: 2 %}
+    {% if page_start < 1 %}
+      {% assign page_start = 1 %}
+    {% endif %}
+    
+    {% assign page_end = page_start | plus: 4 %}
+    {% if page_end > paginator.total_pages %}
+      {% assign page_end = paginator.total_pages %}
+    {% endif %}
+  
+    {% if page_start > 1 %}
+      <a href="{{ '/' | relative_url }}" class="pagination-item">1</a>
+      {% if page_start > 2 %}
+        <span class="pagination-item">...</span>
+      {% endif %}
+    {% endif %}
+  
+    {% for page in (page_start..page_end) %}
+      {% if page == paginator.page %}
+        <span class="pagination-item current">{{ page }}</span>
+      {% else %}
+        <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="pagination-item">{{ page }}</a>
+      {% endif %}
+    {% endfor %}
+  
+    {% if page_end < paginator.total_pages %}
+      {% assign trailing_gap_threshold = paginator.total_pages | minus: 1 %}
+      {% if page_end < trailing_gap_threshold %}
+        <span class="pagination-item">...</span>
+      {% endif %}
+      <a href="{{ site.paginate_path | relative_url | replace: ':num', paginator.total_pages }}" class="pagination-item">{{ paginator.total_pages }}</a>
+    {% endif %}
+  
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-item">
+        Next &raquo;
+      </a>
+    {% else %}
+      <span class="pagination-item disabled">Next &raquo;</span>
+    {% endif %}
+  </div>
+  {% endif %}
+</div> 

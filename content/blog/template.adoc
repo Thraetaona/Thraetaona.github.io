@@ -1,0 +1,86 @@
+= Title of Your Blog Post
+:stem: latexmath
+:toc: left
+:icons: font
+:doctype: article
+:description: A brief description of your blog post for metadata and SEO.
+:keywords: keyword1, keyword2, keyword3
+:page-layout: post
+:published_date: YYYY-MM-DD
+
+Write your introduction paragraph here. This should be a concise overview of what the blog post will cover.
+
+== First Section Heading
+
+Content for the first section. You can include paragraphs, lists, and other elements.
+
+* Bullet point 1
+* Bullet point 2
+* Bullet point 3
+
+=== Subsection Heading
+
+More detailed content for a subsection.
+
+[source,html]
+----
+<!-- Example code block -->
+<div class="example">
+  <p>This is a code example</p>
+</div>
+----
+
+== Including Math Expressions
+
+You can include math expressions using the stem macro:
+
+[stem]
+++++
+E = mc^2
+++++
+
+For inline math expressions, use: stem:[a^2 + b^2 = c^2]
+
+== Including Images
+
+You can include images like this:
+
+image::path/to/image.jpg[Alt text for the image, width=500, height=300]
+
+== Adding Tables
+
+.Table Title
+[options="header"]
+|===
+|Column 1|Column 2|Column 3
+|Cell 1,1|Cell 1,2|Cell 1,3
+|Cell 2,1|Cell 2,2|Cell 2,3
+|Cell 3,1|Cell 3,2|Cell 3,3
+|===
+
+== Adding Notes, Tips, and Warnings
+
+[NOTE]
+====
+This is a note admonition. Use it for additional information.
+====
+
+[TIP]
+====
+This is a tip admonition. Use it for helpful advice.
+====
+
+[WARNING]
+====
+This is a warning admonition. Use it for important cautions.
+====
+
+== Conclusion
+
+Summarize the key points discussed in your blog post. You might want to include next steps or related topics for readers to explore.
+
+== References
+
+* [[[ref1,1]]] Reference 1
+* [[[ref2,2]]] Reference 2
+* [[[ref3,3]]] Reference 3 
