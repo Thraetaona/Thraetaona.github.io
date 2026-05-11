@@ -1,0 +1,6 @@
+evaluation,n,accuracy
+"original saved model, original first-1747 training portion",1747,0.9307
+"original saved model, original final-50 holdout",50,0.92
+"retrained Innervate model, stratified 80% training",1437,0.9276
+"retrained Innervate model, stratified 20% holdout",360,0.925
+"retrained Innervate model after Q3.4 compression, stratified holdout",360,0.8889

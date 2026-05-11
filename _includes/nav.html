@@ -1,0 +1,9 @@
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="brand" href="{{ '/' | relative_url }}">fereydoun</a>
+  <button class="nav-toggle" type="button" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">Menu</button>
+  <div class="nav-links">
+    {% for item in site.data.navigation %}
+      <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active"{% endif %}>{{ item.title }}</a>
+    {% endfor %}
+  </div>
+</nav>

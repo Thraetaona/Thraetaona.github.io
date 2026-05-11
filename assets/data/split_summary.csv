@@ -1,0 +1,5 @@
+split,n,accuracy
+full dataset,1797,
+stratified training,1437,0.9276
+stratified holdout,360,0.925
+stratified holdout after Q3.4 compression,360,0.8889

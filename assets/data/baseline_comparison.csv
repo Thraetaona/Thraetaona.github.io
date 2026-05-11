@@ -1,0 +1,5 @@
+model,holdout_accuracy
+Innervate 64→20→10 DNN,0.925
+Innervate after Q3.4 compression,0.8889
+Logistic regression reference,0.9556
+3-nearest-neighbor reference,0.9861
